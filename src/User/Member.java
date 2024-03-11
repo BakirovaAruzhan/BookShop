@@ -41,15 +41,7 @@ public class Member extends User{
 
 
 
-    public void borrowItem(BorrowableItem item) {
-        if (!item.isBorrowed()) {
-            item.isBorrowed();
-            borrowedItems.add(item);
-            System.out.println(getLogin() + " взято вами в аренду.");
-        } else {
-            System.out.println(item.getClass() + " уже взято в аренду.");
-        }
-    }
+
 
     public String toString() {
         return "Member{" +

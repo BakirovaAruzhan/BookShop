@@ -1,25 +1,13 @@
 package Items;
 
-public class Magazine extends LibraryItem {
-    private String name;
+public class Magazine extends LibraryItem implements BorrowableItem {
     private long yaerOfIssue;
     private String description;
 
-    public Magazine(int id, String name, boolean isAvailable, String name1, long yaerOfIssue, String description) {
+    public Magazine(int id, String name, boolean isAvailable, long yaerOfIssue, String description) {
         super(id, name, isAvailable);
-        this.name = name1;
         this.yaerOfIssue = yaerOfIssue;
         this.description = description;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
     }
 
     public long getYaerOfIssue() {
@@ -37,5 +25,16 @@ public class Magazine extends LibraryItem {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public void borrowItem() {
+
+    }
+
+    @Override
+    public void returnItem() {
+
+    }
 }
+
 

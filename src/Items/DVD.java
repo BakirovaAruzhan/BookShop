@@ -1,6 +1,6 @@
 package Items;
 
-public class DVD extends LibraryItem implements PaperItem {
+public class DVD extends LibraryItem implements PaperItem, BorrowableItem{
 
     private String title;
     private int runTime;
@@ -36,6 +36,16 @@ public class DVD extends LibraryItem implements PaperItem {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public void borrowItem() {
+
+    }
+
+    @Override
+    public void returnItem() {
+
     }
 }
 
