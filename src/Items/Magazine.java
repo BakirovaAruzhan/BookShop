@@ -27,6 +27,14 @@ public class Magazine extends LibraryItem implements BorrowableItem {
     }
 
     @Override
+    public String toString() {
+        return "Magazine{" +"№"+ getId()+
+                "yaerOfIssue=" + yaerOfIssue +
+                ", description='" + description + '\'' +
+                "} " + super.toString();
+    }
+
+    @Override
     public void borrowItem() {
 
     }

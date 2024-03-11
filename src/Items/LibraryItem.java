@@ -43,69 +43,65 @@ public abstract class LibraryItem {
         isAvailable = available;
     }
 
+    @Override
+    public String toString() {
+        return "LibraryItem{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", isAvailable=" + isAvailable +
+                '}';
+    }
+
     public static ArrayList<Book> books = new ArrayList<>();
     public static ArrayList<DVD> dvds = new ArrayList<>();
     public static ArrayList<Magazine> magazines = new ArrayList<>();
 
-    public static ArrayList<Book> getBooks() {
-        return books;
+    public void getBooks() {
+        System.out.println("Список книг:");
+        int numb = 0;
+
+        for (int i = 0; i < books.size(); i++) {
+            System.out.println(numb + 1 + ". " + books.get(i));
+            numb++;
+        }
+
+
     }
 
-    public static ArrayList<DVD> getDVDs() {
-        return dvds;
+    public void getDVDs() {
+        System.out.println("Список дисков: ");
+        int numb = 0;
+
+        for (int i = 0; i < dvds.size(); i++) {
+            System.out.println(numb + 1 + ". " + dvds.get(i));
+            numb++;
+        }
+
+
+
     }
 
-    public static ArrayList<Magazine> getMagazines() {
-        return magazines;
+    public void getMagazines() {
+        System.out.println("Список дисков: ");
+        int numb = 0;
+
+        for (int i = 0; i < magazines.size(); i++) {
+            System.out.println(numb + 1 + ". " + magazines.get(i));
+            numb++;
+        }
+
     }
 
 
-    public static ArrayList<LibraryItem> getItems() {
+    public void getItems() {
         ArrayList<LibraryItem> items = new ArrayList<>();
         items.addAll(books);
         items.addAll(dvds);
         items.addAll(magazines);
-        return items;
     }
 
-    public void borrowItem(int itemId, String userLogin) {
-        ArrayList<LibraryItem> items = getItems();
-
-        if (itemId >= 0 && itemId < items.size()) {
-            LibraryItem item = items.get(itemId);
-            if (item.isAvailable()) {
-                item.setAvailable(false);
-                System.out.println("Элемент взят в аренду пользователем " + userLogin + ": " + item.getName());
-            } else {
-                System.out.println("Элемент недоступен для аренды.");
-            }
-        } else {
-            System.out.println("Некорректный номер элемента.");
-        }
-    }
-
-
-    public void returnItem(int itemId, String userLogin) {
-        ArrayList<LibraryItem> items = getItems();
-
-        if (itemId >= 0 && itemId < items.size()) {
-            LibraryItem item = items.get(itemId);
-            if (!item.isAvailable()) {
-                item.setAvailable(true);
-                System.out.println("Элемент возвращен пользователем " + userLogin + ": " + item.getName());
-            } else {
-                System.out.println("Элемент уже доступен.");
-            }
-        } else {
-            System.out.println("Некорректный номер элемента.");
-        }
-    }
 
     public static void initData() {
 
     }
 }
-
-
-
-

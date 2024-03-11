@@ -4,7 +4,7 @@ import java.util.*;
 
 import static Items.LibraryItem.books;
 
-public class Book extends LibraryItem implements  BorrowableItem {
+public class Book extends LibraryItem implements BorrowableItem {
 
     private String author;
     private String tile;
@@ -49,6 +49,15 @@ public class Book extends LibraryItem implements  BorrowableItem {
     }
 
     @Override
+    public String toString() {
+        return "Book{" +"№"+ getId()+" :"+
+                "author='" + author + '\'' +
+                ", tile='" + tile + '\'' +
+                ", isbn='" + isbn + '\'' +
+                "} " + super.toString();
+    }
+
+    @Override
     public void borrowItem() {
 
     }
@@ -57,6 +66,7 @@ public class Book extends LibraryItem implements  BorrowableItem {
     public void returnItem() {
 
     }
+
 }
 
 

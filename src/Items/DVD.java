@@ -39,6 +39,15 @@ public class DVD extends LibraryItem implements PaperItem, BorrowableItem{
     }
 
     @Override
+    public String toString() {
+        return "DVD{" +"№"+ getId()+
+                "title='" + title + '\'' +
+                ", runTime=" + runTime +
+                ", description='" + description + '\'' +
+                "} " + super.toString();
+    }
+
+    @Override
     public void borrowItem() {
 
     }
