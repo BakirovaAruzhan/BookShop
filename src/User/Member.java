@@ -12,7 +12,6 @@ import static Items.LibraryItem.books;
 
 public class Member extends User{
     private List<BorrowableItem> borrowedItems;
-    private boolean isActive;
 
     public Member(int id, String login, String password, String role) {
         super(id, login, password, role);
@@ -40,23 +39,30 @@ public class Member extends User{
     }
 
 
+
+
     public void borrowItem(BorrowableItem item) {
         if (!item.isBorrowed()) {
-            item.setBorrowed(true);
+            item.isBorrowed();
             borrowedItems.add(item);
             System.out.println(getLogin() + " взято вами в аренду.");
         } else {
-            System.out.println(item.getName() + " уже взято в аренду.");
+            System.out.println(item.getClass() + " уже взято в аренду.");
         }
     }
 
+    public String toString() {
+        return "Member{" +
+                "active=" + isActive() +
+                ", id=" + getId() +
+                ", login='" + getLogin() + '\'' +
+                ", password='" + getPassword() + '\'' +
+                ", role='" + getRole() + '\'' +
+                '}';
+    }
 
-
-   
-
-
-
-
-
+    public boolean isActive() {
+       return true;
+    }
 
 }

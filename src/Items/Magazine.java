@@ -1,20 +1,23 @@
 package Items;
 
-public class Magazine implements BorrowableItem, PaperItem {
+public class Magazine extends LibraryItem {
     private String name;
     private long yaerOfIssue;
     private String description;
 
-    public Magazine(String name, long yaerOfIssue, String description) {
-        this.name = name;
+    public Magazine(int id, String name, boolean isAvailable, String name1, long yaerOfIssue, String description) {
+        super(id, name, isAvailable);
+        this.name = name1;
         this.yaerOfIssue = yaerOfIssue;
         this.description = description;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -33,31 +36,6 @@ public class Magazine implements BorrowableItem, PaperItem {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-
-    public void borrowItem() {
-        if (!isBorrowed) {
-            isBorrowed = true;
-            System.out.println(getName() + " взято в пользование.");
-        } else {
-            System.out.println(getName() + " уже взято в пользование.");
-        }
-    }
-
-    @Override
-    public void returnItem() {
-        if !isBorrowed) {
-            isBorrowed = false;
-            System.out.println(getName() + " возвращено.");
-        } else {
-            System.out.println(getName() + " не было взято в пользование.");
-        }
-    }
-
-    @Override
-    public boolean isBorrowed() {
-        return true;
     }
 }
 

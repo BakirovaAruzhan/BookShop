@@ -1,13 +1,14 @@
 package Items;
 
-public class DVD implements BorrowableItem, PaperItem {
+public class DVD extends LibraryItem implements PaperItem {
 
     private String title;
     private int runTime;
 
     private String description;
 
-    public DVD(String title, int runTime, String description) {
+    public DVD(int id, String name, boolean isAvailable, String title, int runTime, String description) {
+        super(id, name, isAvailable);
         this.title = title;
         this.runTime = runTime;
         this.description = description;
@@ -35,30 +36,6 @@ public class DVD implements BorrowableItem, PaperItem {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void borrowItem() {
-        if (!isBorrowed) {
-            isBorrowed = true;
-            System.out.println(getName() + " взято в пользование.");
-        } else {
-            System.out.println(getName() + " уже взято в пользование.");
-        }
-    }
-
-    @Override
-    public void returnItem() {
-        if (isBorrowed) {
-            isBorrowed = false;
-            System.out.println(getName() + " возвращено.");
-        } else {
-            System.out.println(getName() + " не было взято в пользование.");
-        }
-    }
-
-    @Override
-    public boolean isBorrowed() {
-        return isBorrowed;
     }
 }
 

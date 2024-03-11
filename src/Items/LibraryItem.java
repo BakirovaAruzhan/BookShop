@@ -11,11 +11,10 @@ public abstract class LibraryItem {
     private boolean isAvailable;
 
     public void displayDetails() {
-        for (Book book : books) {
-            book.displayDetails();
-        }
-
+        System.out.printf("ID:%d, Name: %s, isAvailable: %s\n", id, name, isAvailable);
     }
+
+
 
     public LibraryItem(int id, String name, boolean isAvailable) {
         this.id = id;

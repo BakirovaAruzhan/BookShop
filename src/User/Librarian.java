@@ -20,4 +20,14 @@ public class Librarian extends User{
     public void setWorkExperience(int workExperience) {
         this.workExperience = workExperience;
     }
+
+    public String toString() {
+        return "Librarian{" +
+                "workExperience=" + workExperience +
+                ", id=" + getId() +
+                ", login='" + getLogin() + '\'' +
+                ", password='" + getPassword() + '\'' +
+                ", role='" + getRole() + '\'' +
+                '}';
+    }
 }
